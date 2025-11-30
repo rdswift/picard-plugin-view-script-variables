@@ -1,0 +1,17 @@
+uuid = "62e2a3fd-f4df-4b53-abc5-b73d2a36b672"
+name = "View script variables"
+authors = ["Sophist"]
+maintainers = ["Bob Swift"]
+version = "0.7.2"
+description = """
+Display a dialog box listing the metadata tags and variables for the track / file.
+"""
+api = ['3.0']
+license = "GPL-2.0"
+license_url = "https://www.gnu.org/licenses/gpl-2.0.html"
+long_description = """
+Display a dialog box listing the metadata tags and variables for the track / file.
+
+This allows you to see metadata variables beginning with "~" which are not normally visible in the metadata
+pane of the main Picard window, which can be useful when you are writing tagging or file naming scripts.
+"""
