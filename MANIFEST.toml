@@ -2,10 +2,7 @@ uuid = "62e2a3fd-f4df-4b53-abc5-b73d2a36b672"
 name = "View script variables"
 authors = ["Sophist"]
 maintainers = ["Bob Swift"]
-version = "0.7.2"
-description = """
-Display a dialog box listing the metadata tags and variables for the track / file.
-"""
+description = "Display a dialog box listing the metadata tags and variables for the track / file."
 api = ['3.0']
 license = "GPL-2.0"
 license_url = "https://www.gnu.org/licenses/gpl-2.0.html"
@@ -14,4 +11,28 @@ Display a dialog box listing the metadata tags and variables for the track / fil
 
 This allows you to see metadata variables beginning with "~" which are not normally visible in the metadata
 pane of the main Picard window, which can be useful when you are writing tagging or file naming scripts.
+"""
+
+[name_i18n]
+de = "Script-Variablen anzeigen"
+fr = "Afficher les variables du script"
+
+[description_i18n]
+de = "Zeigen Sie ein Dialogfeld an, in dem die Metadaten-Tags und Variablen für den Titel/die Datei aufgelistet sind."
+fr = "Affichez une boîte de dialogue répertoriant les balises de métadonnées et les variables pour la piste/le fichier."
+
+[long_description_i18n]
+de = """
+Zeigt ein Dialogfeld mit den Metadaten-Tags und Variablen für den Titel/die Datei an.
+
+Dadurch können Sie Metadatenvariablen sehen, die mit „~“ beginnen und normalerweise im Metadatenbereich des
+Picard-Hauptfensters nicht sichtbar sind. Dies kann beim Schreiben von Skripten zum Taggen oder Benennen von Dateien nützlich sein.
+"""
+
+fr = """
+Affichez une boîte de dialogue répertoriant les balises et variables de métadonnées pour la piste/le fichier.
+
+Cela vous permet de voir les variables de métadonnées commençant par « ~ » qui ne sont normalement pas visibles dans le volet
+des métadonnées de la fenêtre principale de Picard, ce qui peut être utile lorsque vous écrivez des scripts de balisage ou de
+nommage de fichiers.
 """
