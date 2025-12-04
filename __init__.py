@@ -4,6 +4,7 @@
 from picard.plugin3.api import (
     BaseAction,
     File,
+    PluginApi,
     Track,
 )
 from picard.tags import preserved_tag_names
@@ -22,9 +23,8 @@ def _(text):
 class ViewVariables(BaseAction):
     NAME = 'View script variables'
 
-    def __init__(self, api=None):
-        super().__init__()
-        self.api = api
+    def __init__(self, api: PluginApi = None):
+        super().__init__(api=api)
 
     def callback(self, objs):
         obj = objs[0]
@@ -118,7 +118,7 @@ class ViewVariablesDialog(QtWidgets.QDialog):
         return key_item, value_item
 
 
-def enable(api):
+def enable(api: PluginApi):
     """Called when plugin is enabled."""
     api.register_file_action(ViewVariables)
     api.register_track_action(ViewVariables)
