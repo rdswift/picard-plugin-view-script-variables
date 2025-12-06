@@ -14,46 +14,47 @@ from PyQt6 import QtWidgets
 from .ui_variables_dialog import Ui_VariablesDialog
 
 
-# TODO: Use Picard's i18n system when available
-def _(text):
-    """Dummy translation function for compatibility with Picard's i18n system."""
-    return text
-
-
 class ViewVariables(BaseAction):
     NAME = 'View script variables'
 
     def __init__(self, api: PluginApi = None):
         super().__init__(api=api)
+        self.setText(api.tr("action.name", "View script variables"))
 
     def callback(self, objs):
         obj = objs[0]
         files = self.api.tagger.get_files_from_objects(objs)
         if files:
             obj = files[0]
-        dialog = ViewVariablesDialog(obj)
+        dialog = ViewVariablesDialog(obj, api=self.api)
         dialog.exec()
 
 
 class ViewVariablesDialog(QtWidgets.QDialog):
 
-    def __init__(self, obj, parent=None):
-        QtWidgets.QDialog.__init__(self, parent)
-        self.PRESERVED_TAGS = [x for x in preserved_tag_names()]
+    def __init__(self, obj, parent=None, api: PluginApi = None):
+        super().__init__(parent)
+        self.api = api
+        self.PRESERVED_TAGS = list(preserved_tag_names())
         self.ui = Ui_VariablesDialog()
         self.ui.setupUi(self)
-        self.ui.buttonBox.accepted.connect(self.accept)
+        font = self.ui.metadata_table.font()
+        font.setBold(True)
+        self.ui.metadata_table.horizontalHeaderItem(0).setFont(font)
+        self.ui.metadata_table.horizontalHeaderItem(1).setFont(font)
+        self.ui.metadata_table.horizontalHeaderItem(0).setText(self.api.tr('ui.header0', "Variable"))
+        self.ui.metadata_table.horizontalHeaderItem(1).setText(self.api.tr('ui.header1', "Value"))
         self.ui.buttonBox.rejected.connect(self.reject)
         metadata = obj.metadata
         if isinstance(obj, File):
-            self.setWindowTitle(_("File: %s") % obj.base_filename)
+            self.setWindowTitle(self.api.tr('ui.title_file', "File: %s") % obj.base_filename)
         elif isinstance(obj, Track):
             tn = metadata['tracknumber']
             if len(tn) == 1:
                 tn = "0" + tn
-            self.setWindowTitle(_("Track: %s %s ") % (tn, metadata['title']))
+            self.setWindowTitle(self.api.tr('ui.title_track',"Track: %s %s") % (tn, metadata['title']))
         else:
-            self.setWindowTitle(_("Variables"))
+            self.setWindowTitle(self.api.tr('ui.title_variables', "Variables"))
         self._display_metadata(metadata)
 
     def _display_metadata(self, metadata):
@@ -72,17 +73,17 @@ class ViewVariablesDialog(QtWidgets.QDialog):
         for key in keys:
             if key in self.PRESERVED_TAGS and key.startswith('~'):
                 if not media:
-                    self.add_separator_row(table, i, _("File variables"))
+                    self.add_separator_row(table, i, self.api.tr('ui.section_file', "File variables"))
                     i += 1
                     media = True
             elif key.startswith('~'):
                 if not hidden:
-                    self.add_separator_row(table, i, _("Hidden variables"))
+                    self.add_separator_row(table, i, self.api.tr('ui.section_hidden', "Hidden variables"))
                     i += 1
                     hidden = True
             else:
                 if not album:
-                    self.add_separator_row(table, i, _("Tag variables"))
+                    self.add_separator_row(table, i, self.api.tr('ui.section_tag', "Tag variables"))
                     i += 1
                     album = True
 

@@ -16,6 +16,9 @@
      <property name="autoFillBackground">
       <bool>false</bool>
      </property>
+     <property name="locale">
+      <locale language="English" country="Canada"/>
+     </property>
      <property name="selectionMode">
       <enum>QAbstractItemView::ContiguousSelection</enum>
      </property>
@@ -37,10 +40,10 @@
      <attribute name="verticalHeaderVisible">
       <bool>false</bool>
      </attribute>
-     <attribute name="verticalHeaderDefaultSectionSize">
+     <attribute name="verticalHeaderMinimumSectionSize">
       <number>20</number>
      </attribute>
-     <attribute name="verticalHeaderMinimumSectionSize">
+     <attribute name="verticalHeaderDefaultSectionSize">
       <number>20</number>
      </attribute>
      <row/>
@@ -84,7 +87,7 @@
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Close</set>
      </property>
     </widget>
    </item>
