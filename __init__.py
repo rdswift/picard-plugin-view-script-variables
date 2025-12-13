@@ -17,9 +17,9 @@ from .ui_variables_dialog import Ui_VariablesDialog
 class ViewVariables(BaseAction):
     NAME = 'View script variables'
 
-    def __init__(self, api: PluginApi = None):
-        super().__init__(api=api)
-        self.setText(api.tr("action.name", "View script variables"))
+    def __init__(self):
+        super().__init__(api=self.api)
+        self.setText(self.api.tr("action.name", "View script variables"))
 
     def callback(self, objs):
         obj = objs[0]
