@@ -1,4 +1,4 @@
-"action.name" = "View script variables"
+"action.title" = "View script variables"
 "ui.header0" = "Variable"
 "ui.header1" = "Value"
 "ui.section_file" = "File variables"

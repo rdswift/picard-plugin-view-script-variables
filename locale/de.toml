@@ -1,4 +1,4 @@
-"action.name" = "Skriptvariablen anzeigen"
+"action.title" = "Skriptvariablen anzeigen"
 "ui.header0" = "Variable"
 "ui.header1" = "Wert"
 "ui.section_file" = "Dateivariablen"
