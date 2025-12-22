@@ -1,7 +1,7 @@
 uuid = "62e2a3fd-f4df-4b53-abc5-b73d2a36b672"
 name = "View script variables"
 authors = ["Sophist"]
-maintainers = ["Bob Swift"]
+maintainers = ["MusicBrainz Picard Team"]
 description = "Display a dialog box listing the metadata tags and variables for the track / file."
 api = ['3.0']
 license = "GPL-2.0"
