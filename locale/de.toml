@@ -1,4 +1,6 @@
 "action.title" = "Skriptvariablen anzeigen"
+"ui.details.window.title.multi" = "%{tag_name}% values"
+"ui.details.window.title.single" = "%{tag_name}% value"
 "ui.header0" = "Variable"
 "ui.header1" = "Wert"
 "ui.section_file" = "Dateivariablen"
@@ -7,3 +9,5 @@
 "ui.title_file" = "Datei: %s"
 "ui.title_track" = "Track: %s %s"
 "ui.title_variables" = "Variablen"
+"ui.tooltip" = "Double-click for details"
+"ui.type_error" = "Unknown value type."
