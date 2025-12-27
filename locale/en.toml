@@ -1,6 +1,8 @@
 "action.title" = "View script variables"
-"ui.details.window.title.multi" = "%{tag_name}% values"
-"ui.details.window.title.single" = "%{tag_name}% value"
+["ui.details.window.title"]
+one = "%{tag_name}% value"
+other = "%{tag_name}% values"
+
 "ui.header0" = "Variable"
 "ui.header1" = "Value"
 "ui.section_file" = "File variables"

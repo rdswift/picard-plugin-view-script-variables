@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from collections import namedtuple
-from enum import Enum
+from enum import IntEnum
 
 from PyQt6 import QtCore, QtWidgets
 
@@ -20,7 +20,7 @@ from .ui_variables_dialog import Ui_VariablesDialog
 TagValue = namedtuple("TagValue", "value type")
 
 
-class ValueTypes(Enum):
+class ValueTypes(IntEnum):
     SINGLE = 1
     MULTI = 2
 
@@ -47,11 +47,13 @@ class ViewVariableDetails(QtWidgets.QDialog):
         self.setup_ui()
 
     def setup_ui(self):
-        if self.type == ValueTypes.MULTI:
-            title = self.api.tr("ui.details.window.title.multi", "%{tag_name}% values")
-        else:
-            title = self.api.tr("ui.details.window.title.single", "%{tag_name}% value")
-        title = title.format(tag_name=self.name)
+        title = self.api.trn(
+            "ui.details.window.title",
+            "%{tag_name}% value",
+            "%{tag_name}% values",
+            self.type,
+            tag_name=self.name
+        )
 
         # Set window width to display full tag name without elipses if possible (within reason)
         window_width = min(len(title) * 10 + 100, 1000)
