@@ -70,6 +70,7 @@ class ViewVariableDetails(QtWidgets.QDialog):
             content = QtWidgets.QScrollArea()
             text = QtWidgets.QLabel()
             text.setWordWrap(True)
+            text.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.TextSelectableByMouse)
             text.setText(
                 self.value
                 if self.type == ValueTypes.SINGLE
