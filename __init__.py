@@ -59,7 +59,7 @@ class ViewVariableDetails(QtWidgets.QDialog):
         self.setMaximumWidth(1000)
         self.setMaximumHeight(500)
 
-        self.setWindowTitle(title.format(tag_name=self.name))
+        self.setWindowTitle(title)
         self.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
         self.verticallayout = QtWidgets.QVBoxLayout(self)
 
