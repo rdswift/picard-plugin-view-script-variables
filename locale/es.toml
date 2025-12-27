@@ -1,6 +1,4 @@
 "action.title" = "Ver variables de script"
-"ui.details.window.title.multi" = "%{tag_name}% values"
-"ui.details.window.title.single" = "%{tag_name}% value"
 "ui.header0" = "Variable"
 "ui.header1" = "Valor"
 "ui.section_file" = "Variables de archivo"
@@ -9,5 +7,3 @@
 "ui.title_file" = "Fichero: %s"
 "ui.title_track" = "Canción: %s %s"
 "ui.title_variables" = "Variables"
-"ui.tooltip" = "Double-click for details"
-"ui.type_error" = "Unknown value type."
