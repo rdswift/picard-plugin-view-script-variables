@@ -57,6 +57,14 @@ class ViewVariableDetails(QtWidgets.QDialog):
 
         # Set window width to display full tag name without elipses if possible (within reason)
         window_width = min(len(title) * 10 + 100, 1000)
+
+        # Adjust window width for text line lengths (within reason)
+        if self.type == ValueTypes.SINGLE:
+            line_length = 0
+            for line in self.value.split('\n'):
+                line_length = max(line_length, len(line))
+            window_width = min(1000, max(window_width, line_length * 10 + 100))
+
         self.setMinimumWidth(window_width)
         self.setMaximumWidth(1000)
         self.setMaximumHeight(500)
@@ -70,8 +78,13 @@ class ViewVariableDetails(QtWidgets.QDialog):
             content.addItems(self.value)
         else:
             content = QtWidgets.QScrollArea()
+            content.setSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
             text = QtWidgets.QLabel()
-            text.setWordWrap(True)
+            text.setSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Preferred)
+
+            # Don't wordwrap because this results in unnecessary line splits in Qt.  Let QScrollArea handle long line display.
+            text.setWordWrap(False)
+
             text.setTextInteractionFlags(QtCore.Qt.TextInteractionFlag.TextSelectableByMouse)
             text.setText(
                 self.value
