@@ -1,4 +1,9 @@
 "action.title" = "View script variables"
+"manifest.description" = "Display a dialog box listing the metadata tags and variables for the track / file."
+"manifest.long_description" = "Display a dialog box listing the metadata tags and variables for the track / file.\n\nThis allows you to see metadata variables beginning with \"~\" which are not normally visible in the metadata pane of the main Picard window, which can be useful when you are writing tagging or file naming scripts."
+"manifest.name" = "View script variables"
+"qt.VariablesDialog.header.label.value" = "Value"
+"qt.VariablesDialog.header.label.variable" = "Variable"
 "ui.header0" = "Variable"
 "ui.header1" = "Value"
 "ui.section_file" = "File variables"
@@ -7,3 +12,9 @@
 "ui.title_file" = "File: %s"
 "ui.title_track" = "Track: %s %s"
 "ui.title_variables" = "Variables"
+"ui.tooltip" = "Double-click for details"
+"ui.type_error" = "Unknown value type."
+
+["ui.details.window.title"]
+one = "%{tag_name}% value"
+other = "%{tag_name}% values"

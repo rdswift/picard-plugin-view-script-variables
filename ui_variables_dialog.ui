@@ -49,7 +49,7 @@
      <row/>
      <column>
       <property name="text">
-       <string>Variable</string>
+       <string>header.label.variable</string>
       </property>
       <property name="font">
        <font>
@@ -60,7 +60,7 @@
      </column>
      <column>
       <property name="text">
-       <string>Value</string>
+       <string>header.label.value</string>
       </property>
       <property name="font">
        <font>
